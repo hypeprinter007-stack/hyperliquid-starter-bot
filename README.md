@@ -81,6 +81,10 @@ strategy.py          — signal -> order logic
 
 PRs welcome. If you build something cool on top of this, open an issue and share it.
 
+## Disclaimer
+
+This bot executes real trades with real funds. SignalFuse provides a data fusion API, not financial advice. Signals are mathematical composites that can be wrong. You are responsible for your own trading decisions and risk management. Trade at your own risk.
+
 ## License
 
 MIT
