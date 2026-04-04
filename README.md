@@ -7,7 +7,7 @@ Uses [SignalFuse](https://signalfuse.co) for trading intelligence — fused sent
 
 - Hyperliquid Python SDK — market + limit orders, position management
 - SignalFuse signal layer — fused sentiment + macro + market structure
-- x402 pay-per-call or bulk credit tokens — no account needed
+- Two payment modes — credit tokens (simplest) or x402 per-call (USDC on Base)
 - Simple strategy scaffold — plug in your own logic
 - Clean async architecture — runs on any Linux/Mac
 
@@ -27,8 +27,13 @@ python main.py
 ```python
 from signalfuse_client import SignalFuseClient
 
-sf = SignalFuseClient()
-signal = sf.get_signal("BTC")
+# Credit token (simplest)
+sf = SignalFuseClient(credit_token="your-token")
+
+# Or x402 per-call (requires x402 + eth-account packages)
+# sf = SignalFuseClient(wallet_private_key="0x...")
+
+signal = await sf.get_signal("BTC")
 
 print(signal)
 # {

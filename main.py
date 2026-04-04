@@ -25,7 +25,11 @@ async def main():
         account_address=os.getenv("HL_ACCOUNT_ADDRESS"),
     )
 
-    sf = SignalFuseClient(credit_token=os.getenv("SIGNALFUSE_CREDIT_TOKEN"))
+    # SignalFuse — x402 per-call if wallet key is set, else credit token
+    sf = SignalFuseClient(
+        credit_token=os.getenv("SIGNALFUSE_CREDIT_TOKEN"),
+        wallet_private_key=os.getenv("SIGNALFUSE_WALLET_KEY"),
+    )
     strategy = Strategy(exchange=exchange, info=info)
 
     print("Bot started. Watching:", WATCHLIST)
@@ -33,7 +37,7 @@ async def main():
     while True:
         for symbol in WATCHLIST:
             try:
-                signal = sf.get_signal(symbol)
+                signal = await sf.get_signal(symbol)
                 print(
                     f"[{symbol}] strength={signal['signal_strength']} | "
                     f"{signal['signal']} | regime={signal['regime']}"
