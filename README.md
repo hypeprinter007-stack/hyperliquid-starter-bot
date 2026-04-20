@@ -50,7 +50,7 @@ print(signal)
 # }
 ```
 
-Get 25 free calls — no signup:
+Get 5 free calls — no signup:
 ```bash
 curl -X POST https://api.signalfuse.co/v1/credits/trial \
   -H "Content-Type: application/json" \

@@ -4,7 +4,7 @@ Fused trading intelligence: sentiment + macro regime + market structure.
 Docs: https://signalfuse.co
 
 Two payment modes:
-  1. Credit token (simplest) — get 25 free calls, then buy packs
+  1. Credit token (simplest) — get 5 free calls, then buy packs
   2. x402 per-call — automatic USDC on Base, requires x402 SDK + funded wallet
 """
 import os
